@@ -82,7 +82,7 @@ func ColIndexToLetters(n int) string {
 
 	for n > 0 {
 		n -= 1
-		l := n%26
+		l := n % 26
 		s = string('A'+rune(l)) + s
 		n /= 26
 	}
@@ -725,7 +725,11 @@ func readSheetFromFile(rsheet xlsxSheet, fi *File, sheetXMLMap map[string]string
 	}
 
 	sheet.SheetFormat.DefaultColWidth = worksheet.SheetFormatPr.DefaultColWidth
-	sheet.SheetFormat.DefaultRowHeight = worksheet.SheetFormatPr.DefaultRowHeight
+	sheet.SheetFormat.DefaultRowHeight = 12.85
+	if worksheet.SheetFormatPr.DefaultRowHeight > 0 {
+		sheet.SheetFormat.DefaultRowHeight = worksheet.SheetFormatPr.DefaultRowHeight
+	}
+
 	sheet.SheetFormat.OutlineLevelCol = worksheet.SheetFormatPr.OutlineLevelCol
 	sheet.SheetFormat.OutlineLevelRow = worksheet.SheetFormatPr.OutlineLevelRow
 	if nil != worksheet.DataValidations {
