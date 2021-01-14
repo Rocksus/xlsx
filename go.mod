@@ -1,4 +1,4 @@
-module github.com/Rocksus/xlsx/v3
+module github.com/Rocksus/xlsx
 
 go 1.13
 
