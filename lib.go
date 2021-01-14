@@ -525,6 +525,9 @@ func readRowsFromSheet(Worksheet *xlsxWorksheet, file *File, sheet *Sheet, rowLi
 		row.Hidden = rawrow.Hidden
 		height, err := strconv.ParseFloat(rawrow.Ht, 64)
 		if err == nil {
+			if height == 0 {
+				height = 15.75
+			}
 			row.SetHeight(height)
 		}
 		row.isCustom = rawrow.CustomHeight
